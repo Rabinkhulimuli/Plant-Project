@@ -8,7 +8,7 @@ function MainNav() {
     >
       <Link href="/">Home</Link>
       <Link href="/plant">Plant</Link>
-      <Link href="">Fish</Link>
+      <Link href="/wishlist">Fish</Link>
       <Link href="">Aquarium</Link>
       <Link href="">Contact</Link>
 

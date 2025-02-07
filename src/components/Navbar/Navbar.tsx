@@ -25,7 +25,7 @@ function Navbar() {
 
   return (
     <div
-    className={`max-w-[1440px] mx-auto fixed bg-[#F6F6F6] z-50  top-0 left-0 right-0 w-full transition-transform diration-300 ${isVisible?"translate-y-0":"-translate-y-full"}`}
+    className={`max-w-[1440px] mx-auto fixed bg-[#F6F6F6] z-40  top-0 left-0 right-0 w-full transition-transform duration-500 delay-300 ${isVisible?"translate-y-0":"-translate-y-full"}`}
     >
       <div
     className='relative flex px-2 md:px-12 xl:px-48  items-center justify-between border-b-[0.6px] border-[#D5D5D5] '

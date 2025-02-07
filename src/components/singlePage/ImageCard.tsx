@@ -1,14 +1,14 @@
 "use client"
 import Image from "next/image";
 import React, { useState } from "react";
-import { Carousel, CarouselContent, CarouselItem, CarouselNext, CarouselPrevious } from "../ui/carousel";
+import { Carousel, CarouselContent, CarouselItem} from "../ui/carousel";
 import { plantImages } from "@/config/photo-config";
 function ImageCard() {
   const[image,setImage]= useState("/singleProduct/singleProduct.png")
   const renderPlant=()=> plantImages.map((eh)=> {
     return(<CarouselItem
       key={eh.id}
-      className="basis-1/4 cursor-pointer pl-[24]"
+      className="basis-1/3 md:basis-1/4 cursor-pointer md:pl-[24]"
       onClick={()=> setImage(eh.imageUrl)}
       >
           <div
@@ -30,7 +30,7 @@ function ImageCard() {
         <p>{"Plant > Aleo vera"}</p>
       </div>
       <div
-      className="h-[580px] w-[530px]"
+      className="h-[580px] max-w-[530px] w-full"
       >
         <Image
           src={image}
@@ -41,42 +41,6 @@ function ImageCard() {
         />
       </div>
       <div className="flex w-full items-center justify-between  ">
-        {/* <div className="w-32 h-32 ">
-          <Image
-            src={"/singleProduct/singleProduct.png"}
-            alt=""
-            width={530}
-            height={580}
-            className="rounded-lg w-full h-full  object-cover"
-          />
-        </div>
-        <div className="w-32 h-32">
-          <Image
-            src={"/singleProduct/singleProduct.png"}
-            alt=""
-            width={530}
-            height={580}
-            className="rounded-lg w-full h-full  object-cover"
-          />
-        </div>
-        <div className="w-32 h-32">
-          <Image
-            src={"/singleProduct/singleProduct.png"}
-            alt=""
-            width={530}
-            height={580}
-            className="rounded-lg w-full h-full  object-cover"
-          />
-        </div>
-        <div className="w-32 h-32">
-          <Image
-            src={"/singleProduct/singleProduct.png"}
-            alt=""
-            width={530}
-            height={580}
-            className="rounded-lg w-full h-full  object-cover"
-          />
-        </div> */}
         <Carousel
       opts={{
         align:"start",

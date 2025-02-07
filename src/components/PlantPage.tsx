@@ -6,6 +6,7 @@ import CaresolPlant from "./CaresolPlant";
 import MidPlantImage from "./MidPlantImage";
 import MobilePlantCategory from "./MobilePlantCategory";
 import LastPlant from "./LastPlant";
+import SortPlant from "./SortPlant";
 
 function PlantPage() {
   return (
@@ -40,26 +41,7 @@ function PlantPage() {
             </div>
 
             <div className="flex items-center gap-1 w-full md:w-fit justify-between">
-              <div className="w-full flex items-center gap-2">
-                <p className="text-xs text-gray-500 text-nowrap ">Sort By:</p>
-                <form action="">
-                  <select
-                    name="dropdown"
-                    id="dropdown"
-                    className="px-4 p-2 rounded-md"
-                  >
-                    <option value="" disabled>
-                      {" "}
-                      A-Z{" "}
-                    </option>
-                    <option value="">Indoor</option>
-                    <option value="">Indoor</option>
-                    <option value="">Indoor</option>
-                    <option value="">Indoor</option>
-                    <option value="">Indoor</option>
-                  </select>
-                </form>
-              </div>
+              <SortPlant/>
               <div className=" w-full flex gap-2 justify-between md:hidden bg-white shadow px-4 py-1 rounded-lg items-center ">
                 <div>Category</div>
                 <MobilePlantCategory />

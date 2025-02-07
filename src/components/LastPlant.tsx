@@ -8,7 +8,9 @@ import { FaXTwitter } from "react-icons/fa6";
 import PlantCopyright from "./PlantCopyright";
 function LastPlant() {
   return (
-    <div>
+    <div
+    className="md:py-36"
+    >
       <div className="w-full space-y-6 lg:space-y-12 ">
         <div className="relative  flex items-center justify-center ">
           <Image

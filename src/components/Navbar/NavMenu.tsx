@@ -26,7 +26,7 @@ function NavMenu({
     };
   }, [toggle]);
   return (
-    <div className="w-full mx-auto max-w-[1440px] overflow-hidden fixed inset-0 bg-white z-40 ">
+    <div className="w-full mx-auto max-w-[1440px] overflow-hidden fixed inset-0 h-screen bg-white z-50 ">
       <div className="px-2 md:px-12 lg:px-16  xl:px-48 py-4 max-w-screen h-full bg-white ">
         <div className="px-2 pt-20 relative w-full h-full flex flex-col justify-between  gap-16">
           <button

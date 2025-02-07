@@ -10,7 +10,7 @@ function page() {
     className='pt-32 px-2 md:px-12 xl:px-48 '
     >
       <div
-      className='flex gap-20'
+      className='flex flex-col md:flex-row gap-20'
       >
         <ImageCard/>
       <DetailPage/>

@@ -1,4 +1,5 @@
-import React from "react";
+"use client"
+import React, { useEffect, useState } from "react";
 import {
   Carousel,
   CarouselContent,
@@ -9,54 +10,30 @@ import {
 import { Button } from "./ui/button";
 import Image from "next/image";
 import { IoArrowForwardSharp } from "react-icons/io5";
-function CaresolPlant({title}:{title:string}) {
-  const plantArray = [
-    {
-      id: 0,
-      imageUrl: "/plant.png",
-      price: 100,
-      name: "plant",
-    },
-    {
-      id: 1,
-      imageUrl: "/plant.png",
-      price: 100,
-      name: "plant",
-    },
-    {
-      id: 2,
-      imageUrl: "/plant.png",
-      price: 100,
-      name: "plant",
-    },
-    {
-      id: 21,
-      imageUrl: "/plant.png",
-      price: 100,
-      name: "plant",
-    },
-    {
-      id: 211,
-      imageUrl: "/plant.png",
-      price: 100,
-      name: "plant",
-    },
-    {
-      id: 2111,
-      imageUrl: "/plant.png",
-      price: 100,
-      name: "plant",
-    },
-    {
-      id: 222,
-      imageUrl: "/plant.png",
-      price: 100,
-      name: "plant",
-    },
-  ];
+import { plantArray } from "@/config/photo-config";
+function CaresolPlant({ title }: { title: string }) {
+  const[carouselAlign,setCarouselAign]= useState<"start" | "center"|"end">("start")
+  useEffect(()=> {
+    const handleResize=()=> {
+      if (window.innerWidth <768){
+        setCarouselAign("center")
+      }
+      else{
+        setCarouselAign("start")
+      }
+    }
+
+    window.addEventListener("resize",handleResize)
+    handleResize()
+    return ()=>window.removeEventListener("resize",handleResize)
+  },[window.innerWidth])
   const renderPlant = plantArray.map((eh) => {
+    
     return (
-      <CarouselItem key={eh.id} className=" basis-1/1 md:basis-1/2 custom-912:basis-1/3 lg:basis-1/4 cursor-pointer ">
+      <CarouselItem
+        key={eh.id}
+        className=" basis-1/1 md:basis-1/2 custom-912:basis-1/3 lg:basis-1/4 cursor-pointer "
+      >
         <div className="relative">
           <div className="w-full max-w-60 h-[360px] relative ">
             <Image
@@ -74,14 +51,10 @@ function CaresolPlant({title}:{title:string}) {
                   variant={"outline"}
                 >
                   <div className="flex w-full  items-center justify-between text-xs gap-2 px-1">
-                    <div
-                    className="pl-2"
-                    >Add to wishlist</div>
-                    <div
-                    className=" p-2 text-black bg-white rounded-full"
-                    >
+                    <div className="pl-2">Add to wishlist</div>
+                    <div className=" p-2 text-black bg-white rounded-full">
                       {" "}
-                      <IoArrowForwardSharp  className="  bg-white rounded-full" />
+                      <IoArrowForwardSharp className="  bg-white rounded-full" />
                     </div>{" "}
                   </div>
                 </Button>
@@ -107,34 +80,27 @@ function CaresolPlant({title}:{title:string}) {
   });
   return (
     <div className="mx-6 my-16">
-      <div
-      className="pb-12"
-      >
-       <h2 className="w-full text-center text-xl font-semibold">
-        {title}
-      </h2> 
+      <div className="pb-12">
+        <h2 className="w-full text-center text-xl font-semibold">{title}</h2>
       </div>
-      
-      <div
-      className=""
-      >
-      <Carousel
-      opts={{
-        align:"start",
-        loop:true
-      }}
-      >
-        <CarouselPrevious 
-         className="hidden lg:flex lg:self-center"
-        />
-        <CarouselContent>{renderPlant}</CarouselContent>
 
-        <CarouselNext 
-        className="hidden lg:flex lg:self-center"
-        />
-      </Carousel>
+      <div className="">
+        <Carousel
+          opts={{
+            align:carouselAlign,
+            loop: true,
+          }}
+        >
+          <CarouselPrevious className="hidden lg:flex lg:self-center" />
+          <CarouselContent
+          className=" "
+          >
+            {renderPlant}
+          </CarouselContent>
+
+          <CarouselNext className="hidden lg:flex lg:self-center" />
+        </Carousel>
       </div>
-      
     </div>
   );
 }

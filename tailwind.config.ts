@@ -1,3 +1,4 @@
+import { Caudex } from "next/font/google";
 import type { Config } from "tailwindcss";
 
 export default {
@@ -60,6 +61,9 @@ export default {
 			'custom-820':'820px',
 			'custom-912':'912px',
 			
+		},
+		fontFamily:{
+			caudex:['Caudex','serif'],
 		}
   	}
   },
